@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Montaža marmorja in granita Osmić Sandi s.p.</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
+      background: #f7f5f1;
+      line-height: 1.6;
+    }
+    header {
+      min-height: 92vh;
+      color: white;
+      background: linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.62)),
+        url('slika1.jpg') center/cover;
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      background: rgba(0,0,0,.35);
+      backdrop-filter: blur(6px);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: .4px;
+    }
+    .logo img {
+      height: 46px;
+      width: 46px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .nav-links a:hover { color: #d6b36a; }
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 0 8%;
+    }
+    .hero-content { max-width: 860px; }
+    .eyebrow {
+      display: inline-block;
+      background: rgba(214,179,106,.18);
+      border: 1px solid rgba(214,179,106,.55);
+      color: #f2d89d;
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: clamp(36px, 6vw, 72px);
+      line-height: 1.04;
+      margin-bottom: 22px;
+    }
+    .hero p {
+      font-size: 20px;
+      color: #eee;
+      max-width: 690px;
+      margin-bottom: 34px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 26px;
+      background: #b98934;
+      color: white;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: .2s ease;
+    }
+    .btn:hover { background: #946927; transform: translateY(-2px); }
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid white;
+      margin-left: 10px;
+    }
+    section { padding: 80px 8%; }
+    .section-title {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 46px;
+    }
+    .section-title h2 { font-size: 36px; margin-bottom: 10px; }
+    .section-title p { color: #666; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 12px 32px rgba(0,0,0,.08);
+    }
+    .card h3 { color: #896228; margin-bottom: 12px; }
+    .about {
+      background: white;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .about h2 { font-size: 34px; margin-bottom: 16px; }
+    .about img {
+      width: 100%;
+      min-height: 380px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 16px 38px rgba(0,0,0,.16);
+    }
+    .features { list-style: none; margin-top: 22px; }
+    .features li { margin-bottom: 10px; font-weight: 700; }
+    .features li::before {
+      content: '✓';
+      color: #b98934;
+      margin-right: 10px;
+      font-weight: 900;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.13);
+      display: block;
+      background: #ddd;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+    .gallery img:hover { transform: scale(1.02); }
+    .contact {
+      background: #202020;
+      color: white;
+    }
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .contact-box, .hours-box {
+      background: #2e2e2e;
+      border-radius: 22px;
+      padding: 34px;
+    }
+    .contact h2 { font-size: 34px; margin-bottom: 14px; }
+    .contact a { color: #f0c879; text-decoration: none; font-weight: 800; }
+    .contact p { color: #ddd; margin-bottom: 10px; }
+    .hours { list-style: none; margin-top: 12px; color: #ddd; }
+    .hours li { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #444; }
+    footer {
+      background: #141414;
+      color: #aaa;
+      text-align: center;
+      padding: 24px 8%;
+      font-size: 14px;
+    }
+    @media (max-width: 820px) {
+      nav { flex-direction: column; gap: 14px; }
+      .nav-links a { margin: 0 7px; font-size: 14px; }
+      .about, .contact-wrap { grid-template-columns: 1fr; }
+      .btn.secondary { margin-left: 0; margin-top: 12px; }
+      section { padding: 60px 6%; }
+      .gallery img { height: 230px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logo.jpg" alt="Montaža logo">
+        <span>Sandi Osmić s.p.</span>
+      </div>
+      <div class="nav-links">
+        <a href="#storitve">Storitve</a>
+        <a href="#o-nas">O nas</a>
+        <a href="#galerija">Galerija</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">Montaža kamna in keramike</span>
+        <h1>Montaža marmorja in granita Osmić Sandi s.p.</h1>
+        <p>Kakovostna izvedba talnih in stenskih oblog, montaža naravnega kamna, keramike, marmorja in granita za notranje ter zunanje prostore.</p>
+        <a class="btn" href="tel:+38641773260">Pokličite: 041 773 260</a>
+        <a class="btn secondary" href="#kontakt">Kontaktni podatki</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="storitve">
+    <div class="section-title">
+      <h2>Naše storitve</h2>
+      <p>Specializirani smo za oblaganje tal in sten ter montažo kamna, keramike, marmorja in granita.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Montaža marmorja in granita</h3>
+        <p>Natančna vgradnja kamnitih elementov za stopnice, police, pulte, obloge in druge površine.</p>
+      </div>
+      <div class="card">
+        <h3>Kuhinjski pulti</h3>
+        <p>Izdelava in montaža kamnitih kuhinjskih pultov z elegantnim zaključkom in dolgo življenjsko dobo.</p>
+      </div>
+      <div class="card">
+        <h3>Kopalnice</h3>
+        <p>Oblaganje kopalnic, tušev, sten in tal z velikimi ploščami ter kamnitimi materiali.</p>
+      </div>
+      <div class="card">
+        <h3>Montaža keramike</h3>
+        <p>Polaganje keramike z urejenimi zaključki, kakovostno pripravo podlage in čistim končnim izgledom.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="o-nas" class="about">
+    <div>
+      <h2>Izkušnje, natančnost in zanesljiva izvedba</h2>
+      <p><strong>Montaža marmorja in granita Osmić Sandi s.p.</strong> je podjetje z dolgoletno tradicijo, registrirano za dejavnost oblaganja tal in sten. Strankam nudimo strokovno izvedbo, svetovanje in kakovostno montažo kamnitih ter keramičnih oblog.</p>
+      <ul class="features">
+        <li>Podjetje deluje od leta 1995</li>
+        <li>Strokovna montaža kamna in keramike</li>
+        <li>Urejena izvedba notranjih in zunanjih površin</li>
+        <li>Individualni pristop za vsak projekt</li>
+      </ul>
+    </div>
+    <img src="slika4.jpg" alt="Kuhinjski pult iz kamna">
+  </section>
+
+  <section id="galerija">
+    <div class="section-title">
+      <h2>Primeri del</h2>
+      <p>Oglejte si nekaj izvedenih projektov: kuhinjski pulti, stenske obloge, kopalnice in drugi kamniti elementi.</p>
+    </div>
+
+    <div class="gallery">
+      <img src="slika1.jpg" alt="Kuhinjski pult iz črnega kamna">
+      <img src="slika2.jpg" alt="Kopalniška obloga iz kamna">
+      <img src="slika3.jpg" alt="Kopalnica s kamnito oblogo">
+      <img src="slika4.jpg" alt="Kuhinjski pult in korito">
+      <img src="slika5.jpg" alt="Kuhinjski otok iz črnega kamna">
+      <img src="slika6.jpg" alt="Kopalniški pult z umivalniki">
+      <img src="slika7.jpg" alt="Kuhinjski pult z marmornim vzorcem">
+      <img src="slika8.jpg" alt="Tuš kabina s kamnito oblogo">
+      <img src="slika9.jpg" alt="Kuhinjska obloga in pult">
+    </div>
+  </section>
+
+  <section id="kontakt" class="contact">
+    <div class="contact-wrap">
+      <div class="contact-box">
+        <h2>Kontakt</h2>
+        <p><strong>Podjetje:</strong> MONTAŽA MARMORJA IN GRANITA OSMIĆ SANDI S.P.</p>
+        <p><strong>Naslov:</strong> Veliki Ločnik 55, 1311 Turjak</p>
+        <p><strong>Telefon:</strong> <a href="tel:+38641773260">041 773 260</a></p>
+        <p><strong>Dejavnost:</strong> oblaganje tal in sten, montaža kamna in keramike</p>
+        <br>
+        <a class="btn" href="tel:+38641773260">Pokličite za ponudbo</a>
+      </div>
+
+      <div class="hours-box">
+        <h2>Delovni čas</h2>
+        <ul class="hours">
+          <li><span>Ponedeljek</span><strong>07:00–17:00</strong></li>
+          <li><span>Torek</span><strong>07:00–17:00</strong></li>
+          <li><span>Sreda</span><strong>07:00–17:00</strong></li>
+          <li><span>Četrtek</span><strong>07:00–17:00</strong></li>
+          <li><span>Petek</span><strong>07:00–17:00</strong></li>
+          <li><span>Sobota</span><strong>07:00–14:00</strong></li>
+          <li><span>Nedelja</span><strong>Zaprto</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Montaža marmorja in granita Osmić Sandi s.p.
+  </footer>
+</body>
+</html>
